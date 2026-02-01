@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: grid;
+        margin: 20px;
+        grid-gap: 10px;
+        grid-template-columns: 100px 200px 300px;
+        width: 800px;
+        height: 400px;
+        grid-template-columns:100px 100px 100px ;
+        /* ecah colummn have 100px */
+        background-color: pink;
+        grid-template-rows: 50px 150px 50px;
+        /* ecah row have 100px */
+    }
+    .item{
+        background-color: rgb(143, 227, 200);
+        color: black;
+        padding: 10px;
+        font-size: 28px;
+    }
+    .item:nth-child(1){
+        grid-column: 1/4;
+        background-color: palevioletred;
+    }
+    .item:nth-child(2){
+        grid-column: 1/2;
+        background-color: rosybrown;
+    }
+    .item:nth-child(3){
+        grid-column: 2/4;
+        background-color: royalblue;
+    }
+/* In CSS Grid:
+
+grid-column: 1/2;`** → the item starts at **column line 1** and ends before **line 2**.
+👉 It only takes the **first column**.
+Visual (4-column grid):
+| 1 | 2 | 3 | 4 |
+[item]
+
+ */
+
+    .container{
+         border: 2px solid black;
+        grid-template-rows: repeat(3,1fr);
+        grid-template-columns: repeat(3,1fr);
+                                /* 100px 100px 100px */
+    }
+    .item:nth-child(4){
+        grid-column: 1/4;
+
+        background-color: brown;
+    }
+/* In CSS Grid,
+
+**`grid-column: 1/4;`** means the grid item will start at **column line 1** and span until **column line 4** (not including 4).
+
+So it covers **columns 1, 2, and 3**.
+
+👉 Example grid with 4 columns:
+
+```
+| 1 | 2 | 3 | 4 |
+^   ^       ^
+start       end
+
+ */
+</style>
+<body>
+    <div class="container">
+        <div class="item">Navbar</div>
+        <div class="item">Sidebar</div>
+        <div class="item">Content</div>
+        <div class="item">Footer</div>
+    </div>
+</body>
+</html>
